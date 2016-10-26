@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 배열 정의, 배열 값 저장
+var a1 = new Array(10); // = new Array();
+console.log("a1 length:" + a1.length);
+a1[20] = 20;
+console.log("a1 length:" + a1.length);
+console.log(a1);
+
+var a2 = [];
+console.log("a2 length:" + a2.length);
+
+a2[0] = 10;
+a2[1] = "hello world";
+a2[2] = false;
+a2[3] = {name:"안대혁"};
+console.log("a2 length:" + a2.length);
+console.log(a2);
+
+// 초기화
+var a3 = [1, "ABC", true];
+console.log("a3 length:" + a3.length);
+console.log(a3);
+
+// 배열 순회
+for (var i = 0; i < a3.length; i++) {
+	console.log(a3[i]);
+}
+
+// 배열 확장(remove, insert 함수)
+Array.prototype.remove = function(index) {
+	this.splice(index, 1);
+}
+
+Array.prototype.insert = function(index, value) {
+	this.splice(index, 0, value);
+}
+
+var array1 = [1, 2, 3, 4, 5, 6];
+array1.remove(2);
+console.log(array1);
+array1.insert(0, 0);
+console.log(array1);
+
+var array2 = ["black", "white", "yellow"];
+array2.remove(0);
+console.log(array2);
+array2.insert(0, "blue");
+console.log(array2);
+
+
+
+// 배열 함수 - concat
+var colors = ["black", "white", "yellow"];
+var fruits = ["apple", "banana", "mango"];
+
+var test = fruits.concat(colors);
+console.log(test);
+
+// 배열 함수 - join
+var str = fruits.join(",");
+console.log(str);
+
+// 배열 함수 - pop(stack)
+var color = colors.pop();
+console.log(color);
+console.log(colors);
+
+// 배열 함수 - push(stack)
+colors.push("red");
+console.log(colors);
+
+// 배열 함수 - splice
+fruits.splice(1/*index*/, 1/*count*/); // 삭제
+console.log(fruits);
+
+colors.splice(1, 0, "green"); // 추가
+console.log(colors);
+
+// 배열 함수 - reverse
+fruits.reverse();
+console.log(fruits);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

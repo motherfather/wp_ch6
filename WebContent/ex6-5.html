@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var rect1 = {
+			x1:100,
+			y1:100,
+			x2:200,
+			y2:200,
+			backgroundColor:"#f00",
+			show:function() {
+				document.write(
+						"<div style='" + "position:absolute;" + "left:" + this.x1 + "px;" + "top:" + this.y1
+						+ "px;" + "width:" + (this.x2-this.x1) + "px;" + "height:" + (this.y2-this.y1)
+						+ "px;" + "background-color:" + this.backgroundColor + "'></div>");
+			}
+	}
+	var rect2 = {
+			x1:200,
+			y1:200,
+			x2:400,
+			y2:400,
+			backgroundColor:"#0f0",
+			show:function() {
+				document.write(
+						"<div style='" + "position:absolute;" + "left:" + this.x1 + "px;" + "top:" + this.y1
+						+ "px;" + "width:" + (this.x2-this.x1) + "px;" + "height:" + (this.y2-this.y1)
+						+ "px;" + "background-color:" + this.backgroundColor + "'></div>");
+			}
+	}
+	rect1.show();
+	rect2.show();
+</script>
+</head>
+<body>
+</body>
+</html>
