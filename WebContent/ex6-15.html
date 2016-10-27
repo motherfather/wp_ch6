@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// 함수 객체 생성1
+var f = new Function("a", "b", "var sum=a+b; return sum;");
+console.log(f(10, 20));
+
+// 함수 객체 생성2
+function f2(a, b) {
+	var sum = a + b;
+	return sum;
+}
+console.log(f2(10, 20));
+
+// 함수 객체 생성3 (추천 방식!!)
+var f3 = function(a, b) {
+	var sum = a + b;
+	return sum;
+}
+console.log(f3(10, 20));
+</script>
+</head>
+<body>
+
+</body>
+</html>

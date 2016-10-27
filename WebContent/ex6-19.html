@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	var elBtn = document.getElementById("myBtn");
+	elBtn.onmouseover = function() {
+		var elP = document.getElementById("demo");
+		elP.innerHTML = new Date();
+	}
+	elBtn.onmouseout = function() {
+		var elP = document.getElementById("demo");
+		elP.innerHTML = "헌재시간은!!";
+	}
+}
+</script>
+</head>
+<body>
+	<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
+	<button id="myBtn">Try it</button>
+	<p id="demo">현재시간은!!</p>
+</body>
+</html>

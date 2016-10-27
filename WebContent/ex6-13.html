@@ -4,14 +4,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
+// 타이머 설정1 - 한 번만 실행
+setTimeout(function() { console.log("timeout");/*window.location.href = "http://localhost:8088/mysite3/main";*/ }, 3*1000);
+//console.log("!");
+// setTimeout(function() { console.log("!!!"); }, 1*1000);
 
-var escaped = escape("<h3>Here's a headline!</h3>");
-//alert( escaped );
+// 타이머 설정2 - 여러번 실행되게 할 때(interval)\
+var num = 0;
+var intervalId = setInterval(function() {
+	console.log(++num); 
+	if ( num == 10) { 
+		clearInterval(intervalId);
+	}
+}, 1000);
 
-var url = "http://mysite.com/?stuff=\"안 대혁!&bar=";
-var encodedURL = encodeURI(url);
+var url = "http://mysite.com/?stuff=\"안 대혁!&bar=kickscar@gmail.com";
+console.log(escape(url)); // deprecated
+console.log(encodeURI(url));
+console.log(encodeURIComponent(url));
 
-alert(encodedURL);
 </script>
 </head>
 <body>

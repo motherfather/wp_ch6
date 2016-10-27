@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-var d = new Date(2013, 6, 23);  //2013 년 7월 23일  
-document.write(
-  " 년도: " + (d.getYear() + 1900) + "<BR>" + 
-  " 월: " + (d.getMonth() + 1) + "<BR>" + 
-  " 일은: " + d.getDate() + "<BR>" + 
-  " 요일은: " + d.getDay() + "<BR>" + 
-  " 시는: " + d.getHours() + "<BR>" + 
-  " 분은: " + d.getMinutes() + "<BR>" + 
-  " 초는: " + d.getSeconds() + "<BR>" + 
-  " 밀리초: " + d.getMilliseconds() + "<HR>" );
+console.log(new Date()); // 현재날짜
+// var d = new Date(2016, 9, 27);  //2016 년 10월 27일  
+var d = new Date(2016, 9, 27, 12, 30, 40, 999);  //2016 년 10월 27일 12:30:40.999  
+console.log(
+  " 년도: " + (d.getYear() + 1900) + 
+  " 월: " + (d.getMonth() + 1) +  
+  " 일은: " + d.getDate() +  
+  " 요일은: " + d.getDay() + // 0은 일요일, 1은 월요일
+  " 시는: " + d.getHours() +  
+  " 분은: " + d.getMinutes() + 
+  " 초는: " + d.getSeconds() + 
+  " 밀리초: " + d.getMilliseconds());
  
-d.setYear(2014);  // 2014년 세팅
+d.setYear(2016);  // 2014년 세팅
 document.write(d + "<HR>");
 document.write(d.getDay() + "<HR>");
 

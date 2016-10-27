@@ -4,16 +4,37 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-var changeText = function(el){
-	el.innerHTML = "Ooops!";
+var onH1Clicked = function(el /*HTMLH1Element*/) {
+	var on = false;
+	var elH1 = document.getElementById("my-h1");
+	elH1.innerHTML = (on) ? "click on this text!" : "Ooops!";
+	elH1.style.color = (on) ? "black" : "red";
+}
+
+var onLoad = function() {	
+	var elH1 = document.getElementById("my-h1");
+	console.log(elH1);
+	var on = false;
+	var elH2 = document.getElementById("my-h2");
+	setInterval(function() {
+		elH2.style.color = (on) ? "#000" : "#fff";
+		on = !on;
+	}, 2000);
 }
 </script>
 </head>
-<body>
-<!--
-<h1 onclick="this.innerHTML='Ooops!';">Click on this text!</h1>
--->
-<h1 onclick="changeText(this)">Click on this text!</h1>
+<body onload="onLoad()">
+<h1 onclick='console.log("click");' 
+	  onmousedown="console.log('mousedown');"
+	  onmouseup="console.log('mouseup');"
+	  onmouseover="console.log('mouseover');"
+	  onmouseout="console.log('mouseout');"
+	  ondblclick="console.log('dblclick');">Click on this text!</h1>
+	  
+<h1 id='my-h1' onclick='onH1Clicked(this);'>click on this text!</h1>
+
+<h1 id='my-h2'>어지럽다!</h1>
+
 
 </body>
 </html>

@@ -3,21 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-function mDown( obj ) {
-  obj.style.backgroundColor="#1ec5e5";
-  obj.innerHTML="버튼을 떼주세요.";
+<style type="text/css">
+div {
+	position:absolute;
+	left:100px;
+	top:200px;
+	background-color:#FFC0C0;
+	width:90px;
+	height:40px;
+	padding:40px;
+	text-align:center;
+	color:#fff;
 }
-function mUp( obj ) {
-  obj.style.backgroundColor="#D94A38";
-  obj.innerHTML="클릭하세요!";
+</style>
+<script>
+window.onload = function() {
+	var elBox = document.getElementById("box");
+	elBox.onmousedown = function() {
+		this.innerHTML = "떼!";
+		this.style.backgroundColor = "#FFF000";
+		console.log("타입으로 볼때는 이렇게~ "+this);
+	}
+	elBox.onmouseup = function() {
+		this.innerHTML = "클릭!"
+		this.style.backgroundColor = "#FFC0C0";
+		console.log(this);
+	}
+	elBox.onmouseover = function() {
+		// 박스를 움직인다.
+		// 커서가 밖에 있도록 박스를 움직인다.
+		var left = 0, top = 0;
+		var random = Math.floor(Math.random() * 700);
+		var random2 = Math.floor(Math.random() * 700);
+		console.log("1. " + this.style.left + " : " + this.style.top + " : " + random + " : " + random2);
+		this.style.left = random + "px";
+		this.style.top = random2 + "px";
+		console.log("2. " + event.x + " : " + event.y + " : " + this.style.left + " : " + this.style.top);
+		
+	}
 }
 </script>
-
 </head>
 <body>
-<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
-	클릭하세요!
+<div id="box">
+	클릭!
 </div>
 </body>
 </html>

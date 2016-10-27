@@ -4,31 +4,57 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-function myFunction() {
-   var x = document.getElementById( "fname" );
-   x.value=x.value.toUpperCase();
+window.onload = function() {
+	document.getElementById("my-form").onsubmit = function() {
+		// form validation (폼 유효성 체크)
+		
+		// 1. 아이디 
+		var elInput = document.getElementById("fname");
+		if (elInput.value == '') {
+			alert("아이디는 필수 입력 사항입니다.")
+			elInput.focus();
+			return false;
+		}
+		// 2. 비밀번호
+		var elPassword = document.getElementById("pw");
+		if (elPassword.value == '') {
+			alert("비밀번호는 필수 입력 사항입니다.")
+			elPassword.focus();
+			return false;
+		}
+		return true;
+	}
+	
+	document.getElementById("fname").onchange = function() {
+		var val = this.value;
+		this.value = val.toLowerCase();
+	}
+	
+	document.getElementById("job").onchange = function() {
+		console.log(this.value);
+	}
 }
-
-function selectChanged(){
-	alert("!");
-}
-
 </script>
 </head>
 <body>
-<select onchange="selectChanged()">
-	<option>value1</option>
-	<option>value2</option>
-	<option>value3</option>
-	<option>value4</option>
-	<option>value5</option>
-</select>
-<br>
-아이디 입력: <input type="text" id="fname" onchange="myFunction()">
-
-<p>
-	INPUT에 포커스가 없어지면, 이전 값이 변했는 지 판단해서 항상 대문자로 만드는 예제입니다.
-</p>
-
+<form id='my-form' action='join' method='get'>
+	아이디 입력: <input type="text" id="fname" name="id">
+	<br>
+	<br>
+	비밀번호 입력: <input type="password" id="pw" name="pw">
+	<br>
+	<br>
+	직업:
+	<select id="job" name="job">
+		<option>value1</option>
+		<option>value2</option>
+		<option>value3</option>
+		<option>value4</option>
+		<option>value5</option>
+	</select>
+	<br>
+	<br>
+	<input type='submit' value='확인'>
+</form>
 </body>
 </html>

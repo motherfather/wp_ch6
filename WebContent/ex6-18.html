@@ -3,44 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script type="text/javascript" src='browser-detect.js'></script>
 <script type="text/javascript">
+window.onload = function() {
+	BrowserDetect.init();
+	console.log(BrowserDetect.browser + ":" + BrowserDetect.version + ":" + BrowserDetect.OS);
+	
+	// 브라우저 종류를 알아내는 문자열
+	console.log(navigator.userAgent + ":" + navigator.vendor + ":" + navigator.platform);
+	
+	// 쿠키 체크
+	  if( navigator.cookieEnabled==true ){
+	     console.log("쿠키를 사용할 수 있습니다.")
+	  } else {
+	     console.log("쿠키를 사용할 수 없습니다.")
+	  }
 
-window.onunload = function(){
-	alert("!");	
+	var elBtn = document.getElementById("myBtn");
+	elBtn.onclick = function() {
+		var elP = document.getElementById("demo");
+		elP.innerHTML = new Date();
+	}
 }
 
-function onUnload = function(){
-	alert("진짜 나갈래?");	
-} 
-
-function onLoad(){
-	var btn = document.getElementById("myBtn");
-	btn.onclick = displayDate;
-	btn.onmouseover = displayDate;
-	btn.onmouseout = hideDate;	
+// 인터넷 익스플로러에서만 작동!!
+window.onunload = function() {
+	alert("!!!!!");
 }
-
-function displayDate(){
-   document.getElementById("demo").innerHTML = Date();
-}
-
-function hideDate(){
-   document.getElementById("demo").innerHTML = "";
-}
-
-
 </script>
-
 </head>
-
-<body onload="onLoad()" onunload="onUnload()">
-
-<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
-
-<button id="myBtn">Try it</button>
-
-<p id="demo"></p>
-
+<body>
+	<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
+	<button id="myBtn">Try it</button>
+	<p id="demo">현재시간은!!</p>
 </body>
 </html>
